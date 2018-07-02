@@ -1,0 +1,161 @@
+<div class="container">
+  <form>
+    <!-- (ngSubmit)="onSubmit()" #main-form -->
+    <div class="row">
+      <div class="col-1">
+        <label for="projectname">Project Name: </label>
+      </div>
+      <div class="col-2">
+        <input #projectName type="text" name="projectname" placeholder="Project name..">
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-1">
+        <label for="portfolio">Portfolio: </label>
+      </div>
+      <div class="col-2">
+        <select>
+
+          <option *ngFor="let portfolio of portfolios" value={{portfolio.id}} [class.selected]="portfolio.id === selectedPortfolio" (click)="onSelectPortfolio(portfolio.id)">
+            {{portfolio.name}}
+          </option>
+
+        </select>
+      </div>
+
+      <div class="col-3">
+        <h5>OR</h5>
+      </div>
+      <div class="col-4">
+        <button>+ Add New</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-1">
+        <label for="organization">Organization: </label>
+      </div>
+
+
+      <div class="col-con">
+
+
+        <!-- <label class="container1">Solution Engineer
+                  <input type="checkbox" checked="checked">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container1">QA
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container1">Program MNG CC
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container1">Team Leader
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label> -->
+
+
+
+
+        <!-- <label class="container1">
+          <option *ngFor="let organization of organizations" value= {{organization.id}}
+          [class.selected]="organization === selectedOrganizations"
+            (click)="onSelectOrganizations(organizations)"
+            >  
+            {{organization.name}}   
+            <input type="checkbox">
+            <span class="checkmark"></span>       
+              </option>  -->
+
+
+        <table>
+          <tr *ngFor="let organization of organizations">
+            <label class="container1">
+              <td>
+                <input #organizations type="checkbox" value={{organization.id}}>
+                <span class="checkmark"> </span>
+              </td>
+              <td>{{organization.name}}</td>
+            </label>
+          </tr>
+        </table>
+
+      </div>
+
+      <div class="col-1">
+        <label for="country">Country: </label>
+      </div>
+
+      <div class="col-con">
+
+        <!-- <label class="container1">Israel
+                          <input type="checkbox" checked="checked">
+                          <span class="checkmark"></span>
+                        </label>
+                        <label class="container1">India
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                        <label class="container1">Australia
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label>
+                        <label class="container1">Argentina
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                        </label> -->
+
+
+                        <table>
+                            <tr *ngFor="let country of countries">
+                              <label class="container1">
+                                <td>
+                                  <input type="checkbox" value={{country.id}}>
+                                  <span class="checkmark"> </span>
+                                </td>
+                                <td>{{country.name}}</td>
+                              </label>
+                            </tr>
+                          </table>
+
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-1">
+        <label for="startdate">Start Date: </label>
+
+
+      </div>
+      <div class="col-2">
+        <input type="date" name="startdate">
+      </div>
+
+
+      <div class="col-1">
+        <label for="enddate">End Date: </label>
+
+
+      </div>
+      <div class="col-2">
+
+        <input type="date" name="enddate">
+      </div>
+
+    </div>
+
+
+    <div class="row">
+      <input type="submit" value="Create" (click)="createAccount(projectName.value, organizations.value)">
+      <!-- (click)="getData()" -->
+    </div>
+
+
+  </form>
+</div>

@@ -16,6 +16,7 @@ import { PredictionService } from './prediction.service';
     AppComponent,
     MainFormComponent,
     HomeComponent,
+
     MonthlyUpdateComponent
   ],
   imports: [
@@ -23,6 +24,7 @@ import { PredictionService } from './prediction.service';
     FormsModule,
     AppRoutingModule,
     NgbModule.forRoot(),
+    NgbModule,
     HttpClientModule
   ],
   providers: [ PredictionService ],

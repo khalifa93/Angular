@@ -21,6 +21,8 @@ export class MainFormComponent implements OnInit {
   startDate: Date;
   endDate: Date;
 
+  public show:boolean = false;
+  public counter: number = 0;
 
   constructor(private predictionService: PredictionService) { }
 
@@ -62,7 +64,23 @@ export class MainFormComponent implements OnInit {
   //   this.selectedCountries = organizations;  
   // } 
 
+  toggle(cond: boolean){
+     
+    if(cond==true){
+      this.counter+=1;
+    }
+    else if(cond==false){
+      this.counter-=1;
+    }
 
+    if(this.counter>0){
+      this.show = true;
+    }
+    else{
+      this.show =false;
+    }
+    
+  }
 
 
 }

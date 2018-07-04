@@ -8,7 +8,6 @@
       <div class="col-2">
         <input #projectName type="text" name="projectname" placeholder="Project name..">
       </div>
-
     </div>
 
     <div class="row">
@@ -77,15 +76,17 @@
           <tr *ngFor="let organization of organizations">
             <label class="container1">
               <td>
-                <input #organizations type="checkbox" value={{organization.id}}>
+                <input #organizations type="checkbox" value={{organization.id}} (click)="toggle(organizations.checked)">
                 <span class="checkmark"> </span>
               </td>
-              <td>{{organization.name}}</td>
+              <td >{{organization.name}}</td>
             </label>
           </tr>
         </table>
 
       </div>
+
+    <div  *ngIf="show">
 
       <div class="col-1">
         <label for="country">Country: </label>
@@ -111,7 +112,7 @@
                         </label> -->
 
 
-                        <table>
+                        <table >
                             <tr *ngFor="let country of countries">
                               <label class="container1">
                                 <td>
@@ -126,7 +127,7 @@
       </div>
 
     </div>
-
+  </div>
     <div class="row">
       <div class="col-1">
         <label for="startdate">Start Date: </label>

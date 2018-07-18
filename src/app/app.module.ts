@@ -1,3 +1,4 @@
+// import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -9,14 +10,13 @@ import { HomeComponent } from './home/home.component';
 import { MonthlyUpdateComponent } from './monthly-update/monthly-update.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PredictionService } from './prediction.service';
-
+import { ChartModule } from 'angular2-chartjs';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainFormComponent,
     HomeComponent,
-
     MonthlyUpdateComponent
   ],
   imports: [
@@ -25,9 +25,10 @@ import { PredictionService } from './prediction.service';
     AppRoutingModule,
     NgbModule.forRoot(),
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartModule,
   ],
   providers: [ PredictionService ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
